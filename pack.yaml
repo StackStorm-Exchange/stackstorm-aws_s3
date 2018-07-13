@@ -1,14 +1,14 @@
 ---
 ref: aws_s3
 name : aws_s3
-description : st2 content pack containing Amazon Web Services integrations.
+description : AWS S3-specific actions
 keywords:
   - aws
   - amazon web services
   - amazon
   - s3
 
-version : 2.0.2
+version : 2.0.3
 author : StackStorm, Inc.
 email : info@stackstorm.com
 contributors:
