@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.3
+
+- Removed irrelevant tests
+
 ## 2.0.0
 
 - Separate AWS packs per resource type
