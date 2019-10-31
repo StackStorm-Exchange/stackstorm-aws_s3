@@ -19,6 +19,7 @@ def convert(name):
     s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
     return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
 
+
 session = Session()
 allservices = session.get_available_services()
 
@@ -54,7 +55,7 @@ if myservice is None:
     print ', '.join(session.get_available_services())
     print
     sys.exit(1)
-  
+
 print "Creating pack for %s:" % myservice
 
 try:
@@ -75,8 +76,7 @@ with open(packyaml, 'w') as y:
     outputText = template.render(allvars).encode('utf8')  # pylint: disable=no-member
     y.write(outputText)
 
-for op in mysrv.operation_names:
-
+for op in mysrv.operation_names:  # pylint: disable=not-an-iterable
     allvars['paramsreq'] = []
     allvars['params'] = []
 
@@ -91,13 +91,13 @@ for op in mysrv.operation_names:
     if model.input_shape is None:
         continue
 
-    members = model.input_shape.members
+    members = model.input_shape.members  # pylint: disable=no-member
 
     smodel = model.service_model
 
     # print smodel._shape_resolver
 
-    smembers = model.input_shape._shape_model['members']
+    smembers = model.input_shape._shape_model['members']  # pylint: disable=no-member
     for sname, sdata in smembers.items():
         tmp = {}
         stype = smodel._shape_resolver._shape_map[sdata['shape']]['type']
@@ -126,7 +126,7 @@ for op in mysrv.operation_names:
         else:
             tmp['description'] = ''
 
-        if sname in model.input_shape.required_members:
+        if sname in model.input_shape.required_members:  # pylint: disable=no-member
             allvars['paramsreq'].append(tmp)
         else:
             allvars['params'].append(tmp)
