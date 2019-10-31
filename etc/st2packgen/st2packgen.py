@@ -51,17 +51,17 @@ templateLoader = jinja2.FileSystemLoader(searchpath="templates")
 templateEnv = jinja2.Environment(loader=templateLoader)
 
 if myservice is None:
-    print "service not defined. please choose from the following:\n"
-    print ', '.join(session.get_available_services())
-    print
+    print("service not defined. please choose from the following:\n")
+    print(', '.join(session.get_available_services()))
+    print('')
     sys.exit(1)
 
-print "Creating pack for %s:" % myservice
+print("Creating pack for %s:" % myservice)
 
 try:
     mysrv = session.get_service_model(myservice)
 except botocore.exceptions.UnknownServiceError as e:
-    print "\n%s\n" % e
+    print("\n%s\n" % e)
     sys.exit(1)
 
 allvars = {}
@@ -84,7 +84,7 @@ for op in mysrv.operation_names:  # pylint: disable=not-an-iterable
 
     op = convert(op)
 
-    print " " + op
+    print(" " + op)
     allvars['action'] = op
     allvars['name'] = op
 
