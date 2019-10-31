@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Download dependencies
           command: |
-            git clone -b master git://github.com/stackstorm-exchange/ci.git ~/ci
+            git clone -b pack_license_check git://github.com/stackstorm-exchange/ci.git ~/ci
             ~/ci/.circle/dependencies
       - run:
           name: Run tests (Python 2.7)
