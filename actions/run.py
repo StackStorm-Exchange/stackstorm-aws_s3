@@ -1,5 +1,3 @@
-import st2aws
-
 from st2aws import action
 
 
