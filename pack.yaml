@@ -14,5 +14,4 @@ email : info@stackstorm.com
 contributors:
   - Andy Moore <andrew.moore@pearson.com>
 python_versions:
-  - "2"
   - "3"
